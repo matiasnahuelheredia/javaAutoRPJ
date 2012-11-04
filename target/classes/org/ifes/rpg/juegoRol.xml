@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:util="http://www.springframework.org/schema/util"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <bean id="Mago" 
+      class="org.ifes.dominio.Mago"> 
+      <constructor-arg value="2" /><!-- vida -->
+      <constructor-arg ref="Cuchillo" /> <!-- arma con la que empieza el mago -->            
+      <constructor-arg value="true" /><!-- es un personaje magico-->
+      <constructor-arg value="1" /><!--cantidad de golpes-->
+  </bean>
+  
+  <bean id="Elfo" 
+      class="org.ifes.dominio.Elfo"> 
+       <constructor-arg value="5" /><!-- vida -->
+      <constructor-arg ref="Vara" /> <!-- arma con la que empieza el elfo -->            
+      <constructor-arg value="true" /><!-- es un personaje magico-->
+      <constructor-arg value="1" /><!--cantidad de golpes-->
+  </bean>
+  
+  <bean id="Guerrero" 
+      class="org.ifes.dominio.Guerrero">
+      <constructor-arg value="10" /><!-- vida -->
+      <constructor-arg ref="Espada" /> <!-- arma con la que empieza el guerrero -->            
+      <constructor-arg value="false" /><!-- no es un personaje magico-->
+      <constructor-arg value="1" /><!--cantidad de golpes-->
+  </bean>
+  
+  <bean id="Cuchillo"
+      class="org.ifes.dominio.Cuchillo">      
+      <constructor-arg value="-1" /> 
+  </bean>
+  <bean id="Vara"
+      class="org.ifes.dominio.Vara">      
+      <constructor-arg value="-2" /> 
+  </bean>
+  <bean id="Espada"
+      class="org.ifes.dominio.Espada">      
+      <constructor-arg value="-6" /> 
+  </bean>  
+    
+  <bean id="Fireball"
+     class="org.ifes.dominio.BolaDeFuego"> 
+      <constructor-arg value="-5" />       
+      <constructor-arg value="0" />
+      <constructor-arg value="true" />    
+  </bean>
+  	
+  <bean id="Velocidad"
+      class="org.ifes.dominio.Velocidad">          
+      <constructor-arg value="0" />
+      <constructor-arg value="2" /> 
+      <constructor-arg value="false" /> 
+  </bean>
+  
+  <bean id="Curar"
+      class="org.ifes.dominio.Curar">      
+      <constructor-arg value="1" />       
+      <constructor-arg value="0" />
+      <constructor-arg value="false" /> 
+  </bean>
+  
+  
+  <bean id="Orco" 
+      class="org.ifes.dominio.Orco" scope="prototype">
+      <constructor-arg value="8" /> 
+      <constructor-arg value="-5" />       
+  </bean>
+  
+  <bean id="Muertoviviente" 
+      class="org.ifes.dominio.MuertoViviente" scope="prototype">
+      <constructor-arg value="4" />   
+      <constructor-arg value="-7" />     
+  </bean>
+  
+  <bean id="Gargola" 
+      class="org.ifes.dominio.Gargola" scope="prototype">
+      <constructor-arg value="15" />   
+      <constructor-arg value="-6" />     
+  </bean>
+        
+ </beans>

@@ -14,6 +14,6 @@ public interface IPersonaje {
 	public void cargarVida(int vida);
 	public int cantGolpe();
 	public void setCantGolpe(int numGolpes);
-	
+	public IMonstruo ataca(IMonstruo mous);
 
 }

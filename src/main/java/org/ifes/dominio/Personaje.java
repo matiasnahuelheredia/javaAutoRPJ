@@ -30,7 +30,11 @@ abstract class Personaje implements IPersonaje {
 	}
 	public int cantGolpe(){ return this.golpes; }
 	public void setCantGolpe(int numGolpes){ this.golpes = numGolpes; }
-	
+	public IMonstruo ataca(IMonstruo mous)
+	{
+		mous.cargarVida(this.getArma().getDanio());
+		return mous;
+	}
 	public Personaje(int hv, IArma arma, boolean magico,
 			int golpes) {
 		super();

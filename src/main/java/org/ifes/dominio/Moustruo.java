@@ -25,18 +25,19 @@ abstract class Moustruo {
 		else
 							this.hv = this.hv+vida;
 	}
-	public List<IPersonaje> AtacarAUnPersonaje(IMonstruo moustruo, List<IPersonaje> personaje)
+	public List<IPersonaje> AtacarAUnPersonaje(List<IPersonaje> personaje)
 	{
 		Random rnd = new Random();
 		IPersonaje persAux;//personaje auxiliar
-		persAux = personaje.get(rnd.nextInt(personaje.size()));		
+		persAux = personaje.get(rnd.nextInt(personaje.size()));	
 		if(rnd.nextInt(2)==1)
 		{
-		persAux.cargarVida(moustruo.getDanio());
-		//System.out.println("El monstruo "+moustruo.getNombre()+" a atacado al "+persAux.getNombre()+" haciendole "+moustruo.getDanio()+" de daño!");
+		persAux.cargarVida(this.getDanio());
+		
+		System.out.println("El monstruo "+this.getNombre()+" a atacado al "+persAux.getNombre()+" haciendole "+this.getDanio()+" de daño!");
 		}
 		else
-			{/*System.out.println("El monstruo "+moustruo.getNombre()+" a fallado su ataque!");*/}
+			{System.out.println("El monstruo "+this.getNombre()+" a fallado su ataque!");}
 		return personaje;
 	}
 	

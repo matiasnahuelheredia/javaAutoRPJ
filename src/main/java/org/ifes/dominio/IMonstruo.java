@@ -10,5 +10,5 @@ public interface IMonstruo {
 	public int getDanio();
 	public void setDanio(int danio);
 	public void cargarVida(int vida);
-	public List<IPersonaje> AtacarAUnPersonaje(IMonstruo moustruo, List<IPersonaje> personaje);
+	public List<IPersonaje> AtacarAUnPersonaje(List<IPersonaje> personaje);
 }

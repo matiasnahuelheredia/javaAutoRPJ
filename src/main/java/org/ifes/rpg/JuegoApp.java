@@ -153,21 +153,6 @@ public class JuegoApp extends Thread {
 		}
 	}
 	
-	public static void monstruoAtaca(IMonstruo bicho, IPersonaje p1, IPersonaje p2, IPersonaje p3) throws Exception
-	{
-		IPersonaje auxiliar = null;
-		do{	auxiliar = damePersonaje(p1,p2,p3);	}
-		while(auxiliar.getVida() == 0);
-		if(isGolpe())
-		{
-			auxiliar.cargarVida(bicho.getDanio());
-			System.out.println("El monstruo "+bicho.getNombre()+" a atacado al "+auxiliar.getNombre()+" haciendole "+bicho.getDanio()+" de daño!");
-			isDead(auxiliar);
-		}
-		else
-			System.out.println("El monstruo "+bicho.getNombre()+" a fallado su ataque!");
-	}
-	
 	public static void secuencia(IPersonaje jugador, IPersonaje p2, IPersonaje p3, IMonstruo bicho) throws Exception
 	{
 		if(bicho.getVida() > 0)
@@ -261,7 +246,7 @@ public class JuegoApp extends Thread {
 	   			if(mago.getVida() > 0)
 	   			secuencia(mago,guerrero,elfo,bicho);
 	   			if(bicho.getVida() == 0) break;
-	   			monstruoAtaca(bicho,guerrero,mago,elfo);
+	   			listaPersonaje = bicho.AtacarAUnPersonaje(listaPersonaje);
 	   		}
 	   		while(LogicaJuego.isAlivepjs(listaPersonaje)&&bicho.getVida() > 0);
 	   			   		

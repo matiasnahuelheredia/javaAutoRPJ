@@ -1,13 +1,8 @@
 package aux;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 import org.ifes.Servicio.LogicaJuego;
-import org.ifes.dominio.IMonstruo;
-import org.ifes.dominio.IPersonaje;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;

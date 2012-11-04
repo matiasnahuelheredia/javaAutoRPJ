@@ -70,7 +70,7 @@
       <constructor-arg value="-5" />       
   </bean>
   
-  <bean id="Muertoviviente" 
+  <bean id="MuertoViviente" 
       class="org.ifes.dominio.MuertoViviente" scope="prototype">
       <constructor-arg value="4" />   
       <constructor-arg value="-7" />     

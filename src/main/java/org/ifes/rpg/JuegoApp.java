@@ -8,13 +8,10 @@ import org.ifes.dominio.Cuchillo;
 import org.ifes.dominio.Curar;
 import org.ifes.dominio.Elfo;
 import org.ifes.dominio.Espada;
-import org.ifes.dominio.Gargola;
 import org.ifes.dominio.Guerrero;
 import org.ifes.dominio.IHechizo;
 import org.ifes.dominio.Mago;
 import org.ifes.dominio.IMonstruo;
-import org.ifes.dominio.MuertoViviente;
-import org.ifes.dominio.Orco;
 import org.ifes.dominio.IPersonaje;
 import org.ifes.dominio.Vara;
 import org.ifes.dominio.Velocidad;
@@ -185,19 +182,7 @@ public class JuegoApp extends Thread {
 		}
 	}
 	
-	public static IMonstruo dameBicho()
-	{
-		IMonstruo bicho = null;
-		
-		switch(tirameRandom(3))
-   		{
-		
-   			case 0 : bicho = (Orco) factory.getBean("Orco"); break;
-   			case 1 : bicho = (MuertoViviente) factory.getBean("Muertoviviente"); break;
-   			case 2 : bicho = (Gargola) factory.getBean("Gargola"); break;
-   		}
-		return bicho;
-	}
+	
 	
 	public static IArma dameArma()
 	{
@@ -219,7 +204,6 @@ public class JuegoApp extends Thread {
 	   	IPersonaje guerrero = (Guerrero) factory.getBean("Guerrero");	
 	   	IPersonaje elfo = (Elfo) factory.getBean("Elfo");
 	   	List<IPersonaje> listaPersonaje = new ArrayList<IPersonaje>();
-	   	/*List<IMonstruo> listaIMonstruos = null;*/
 	   	System.out.println("Ha comenzado el juego!");
 	   	listaPersonaje.add(guerrero);
 	   	listaPersonaje.add(elfo);
@@ -229,7 +213,7 @@ public class JuegoApp extends Thread {
 	    do
 	   	{	
 	    	//sale un bicho al azar
-	    	IMonstruo bicho = dameBicho();
+	    	IMonstruo bicho = LogicaJuego.tipoBichoAzar();
 	    	System.out.println("Ha surgido un nuevo monstruo en la batalla : "+bicho.getNombre());
 	   		
 	   		do

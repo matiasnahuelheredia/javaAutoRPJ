@@ -1,13 +1,22 @@
 package org.ifes.Servicio;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+import org.ifes.dominio.IHechizo;
+import org.ifes.dominio.IMonstruo;
 import org.ifes.dominio.IPersonaje;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class LogicaJuego {
 
+	public static ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"org/ifes/rpg/juegoRol.xml"});
+    public static BeanFactory factory = context;
+    public static IHechizo hechizo;
 	/**
 	 * transforma el objeto Random en estatico
 	 * @param limite limite maximo de numero pseudoaleatorio empezando desde 0
@@ -27,7 +36,27 @@ public class LogicaJuego {
 	{	
 		return personaje.get(tirameRandom(personaje.size()));
 	}
-	
+	/**
+	 * retorna un objeto al azar que implemente la interfaz IMoustruo
+	 * @return objeto de tipo IMoustruo Al azar
+	 */
+	public static IMonstruo tipoBichoAzar()
+	{
+		String[] objt = context.getBeanDefinitionNames();//carga objetos del bean
+		List<String> list = new ArrayList<String>();//lista de nombres de clases que implementan Ipersonaje
+      for (int i=0;i<objt.length;i++)//recorre la lista de objetos
+      {
+    	  
+		if (context.getBean(objt[i]).getClass().getInterfaces()[0].getSimpleName().equals("IMonstruo"))//me fijo si implementa la interface IPersonaje
+    	  {
+    		list.add(objt[i]);
+    	  }
+      }
+      	Random rand = new Random();
+      	
+      	return (IMonstruo) factory.getBean(list.get(rand.nextInt(list.size())));
+		
+	}
 	
     /**
      * metodo aleatoreo para indicar si el golpe fue exitoso

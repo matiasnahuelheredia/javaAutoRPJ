@@ -220,15 +220,15 @@ public class JuegoApp extends Thread {
 	   		{
 	   		//cuando le toca a el guerrero	   			
 	   			if(listaPersonaje.get(0).getVida() > 0)
-	   			secuencia(guerrero,elfo,mago,bicho);//solo interesa el orden del primer valor por referencia que es el jugador actual
+	   			secuencia(listaPersonaje.get(0),listaPersonaje.get(1),listaPersonaje.get(2),bicho);//solo interesa el orden del primer valor por referencia que es el jugador actual
 	   			if(bicho.getVida() == 0) break;
 	   			//cuando le toca a el elfo
 	   			if(listaPersonaje.get(1).getVida() > 0)
-	   			secuencia(elfo,guerrero,mago,bicho);
+	   			secuencia(listaPersonaje.get(1),listaPersonaje.get(0),listaPersonaje.get(2),bicho);
 	   			if(bicho.getVida() == 0) break;
 	   			//cuando le toca al mago
 	   			if(listaPersonaje.get(0).getVida() > 0)
-	   			secuencia(mago,guerrero,elfo,bicho);
+	   			secuencia(listaPersonaje.get(2),listaPersonaje.get(0),listaPersonaje.get(1),bicho);
 	   			if(bicho.getVida() == 0) break;
 	   			listaPersonaje = bicho.AtacarAUnPersonaje(listaPersonaje);
 	   		}

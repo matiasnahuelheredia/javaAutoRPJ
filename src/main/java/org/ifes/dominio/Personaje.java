@@ -30,6 +30,11 @@ abstract class Personaje implements IPersonaje {
 	}
 	public int cantGolpe(){ return this.golpes; }
 	public void setCantGolpe(int numGolpes){ this.golpes = numGolpes; }
+	/**
+	 * Mediante este metodo 
+	 * El personaje ataca a un moustruo 
+	 * @return devuelve el moustruo que ataco 
+	 */
 	public IMonstruo ataca(IMonstruo mous)
 	{
 		mous.cargarVida(this.getArma().getDanio());
